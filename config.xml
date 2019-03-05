@@ -44,9 +44,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <allow-navigation href="https://*youtube.com/*"/>
-        <allow-navigation href="https://*vimeo.com/*"/>
-        <allow-navigation href="https://*kscode.com.br/*"/>
+        <allow-navigation href="*" />
         <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
             <string>You can take photos</string>
         </config-file>
