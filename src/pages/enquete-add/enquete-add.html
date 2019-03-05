@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>ENQUETE</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <div class="select" (click)="cam()"> <ion-icon color="primary" class="icone_tam" name="camera"></ion-icon> <ion-icon color="primary" class="icone" name="add"></ion-icon></div>
+     
+  <form class="" [formGroup]="loginForm">
+    <ion-list class="index-formularios">
+        <ion-item>
+            <ion-label>
+                <ion-icon name="help"></ion-icon>
+            </ion-label>
+            <ion-input name="nome" type="text" [(ngModel)]="model.titulo"  formControlName="titulo" placeholder="Escreva aqui a sua pergunta" value="{{titulo}}"></ion-input>
+        </ion-item>
+        <div><p *ngIf="errorEmail" class="error"> {{messageEmail}}</p></div>  
+        <ion-item>
+              <ion-label>
+                    <ion-icon name="information"></ion-icon>
+                </ion-label>
+                <ion-input name="nome" type="text" [(ngModel)]="model.opcao1"  formControlName="opcao1" placeholder=" Escreva aqui uma alternativa" value="{{opcao1}}"></ion-input>
+        </ion-item>
+        <ion-item>
+              <ion-label>
+                    <ion-icon name="information"></ion-icon>
+                </ion-label>
+                <ion-input name="nome" type="text" [(ngModel)]="model.opcao2"  formControlName="opcao2" placeholder=" Escreva aqui uma alternativa" value="{{opcao2}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                <ion-icon name="calendar"></ion-icon>
+            </ion-label>
+            <ion-datetime displayFormat="DD MM  YYYY" [(ngModel)]="model.data"  formControlName="data"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Encerramento automático ?</ion-label>
+            <ion-toggle [(ngModel)]="model.isAutomatico" formControlName="isAutomatico" (ionChange)="change_segmento(model.isAutomatico)" checked="{{model.isAutomatico}}"></ion-toggle>
+  
+        </ion-item>
+        <div class="list-categorias" *ngIf="images && images.length">
+              <div  class="box-menu-categorias"> 
+                     <button ion-button clear large btn-categoria *ngFor="let images of images">
+                         <ion-thumbnail item-start (click)="selectVideo(images.img_link)">
+                            <img src="{{video.img_link}}" >
+                         </ion-thumbnail>
+                     </button>   
+                </div> 
+        </div>
+        <div class="bt-edit-dados">
+                <button ion-button block (click)="updateConta()">Salvar</button>
+               <!--  <a>Excluir conta</a> -->
+            </div>
+
+    </ion-list>
+   </form>
+</ion-content>
